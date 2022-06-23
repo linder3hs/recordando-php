@@ -25,15 +25,10 @@
 	  El joven manos de tijera
 	</h1>
     <img class="mx-auto" src="{{URL::asset('img/P1.jpg')}}" >
-
     
-    <button class="mt-2 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md w-full">
+    <button class="mt-4 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md w-full">
 	  Rentar
 	</button>
-	<button class="mt-2 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md w-full">
-	  Rentar
-	</button>
-
     </div>
 
     <div class="relative p-4 w-full bg-white rounded-lg overflow-hidden hover:shadow" style="min-height: 160px;">
@@ -128,10 +123,8 @@
     <span>© 2022 Desarrollado por :</span>
     <a class="text-gray-600 font-semibold" >
         <ul>
-            <li>Gian Arce</li>
             <li>Max Martinez</li>
             <li>Hilari Martinez</li>
-            <li>Manrique Valerio</li>
         </ul>
     </a>
     </div>
