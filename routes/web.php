@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Livewire\Peliculas;
+use App\Http\Livewire\RentasUpdate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Rentas;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +26,8 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/rentas', Rentas::class);
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/rentas/actualizar/{id_renta}', RentasUpdate::class)->name('renta-update');
+    Route::post('/renta-update', [RentasUpdate::class, 'update'])->name('renta-update-post');
+    Route::get('/dashboard', Peliculas::class)->name('dashboard');
+    Route::get('/rentar-pelicula/{idPelicula}', [Peliculas::class, 'rentar'])->name('rentar-pelicula');
 });

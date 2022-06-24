@@ -1,6 +1,6 @@
 <x-slot name="header">
     <h1 class="text-gray-900">CRUD con Laravel y Livewire</h1>
-</x-slot>
+
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
@@ -40,8 +40,10 @@
                 <td class="border px-4 py-2">{{$renta->name}}</td>
                 <td class="border px-4 py-2">{{$renta->nombre_peli}}</td>
                 <td class="border px-4 py-2 text-center">
-                    <button were:click="edit({{$renta->id_renta}})" class="bg-blue-500 hover:bg-blue-600 rounded-md text-white font-bold py-2 px-4">Editar</button>
-                    <button were:click="delete({{$renta->id_renta}})" class="bg-red-500 hover:bg-blue-600 rounded-md text-white font-bold py-2 px-4">Borrar</button>
+                    @if (\Illuminate\Support\Facades\Auth::user()->rol == "1")
+                    <a  href="{{ route('renta-update', ['id_renta' => $renta->id_renta]) }}" class="bg-blue-500 hover:bg-blue-600 rounded-md text-white font-bold py-2 px-4">Editar</a>
+                    <button were:click="delete({{$renta->id_renta}})" class="bg-red-500 hover:bg-blue-600 rounded-md text-white font-bold my-3 py-2 px-4">Borrar</button>
+                    @endif
                 </td>
             </tr>
             @endforeach
@@ -50,3 +52,4 @@
         </div>
     </div>
 </div>
+</x-slot>

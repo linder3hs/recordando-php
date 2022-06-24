@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('renta', function (Blueprint $table) {
-            $table->integer('user_id')->after('id_peli')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('rol')->after('email')->nullable()->default(false);
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('renta', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['rol']);
         });
     }
 };

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('renta', function (Blueprint $table) {
-            $table->integer('user_id')->after('id_peli')->nullable();
+        Schema::table('pelicula', function (Blueprint $table) {
+            $table->string('imagen')->after('genero')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('renta', function (Blueprint $table) {
-            //
+        Schema::table('pelicula', function (Blueprint $table) {
+            $table->dropColumn('imagen');
         });
     }
 };

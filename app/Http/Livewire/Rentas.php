@@ -10,30 +10,17 @@ use Illuminate\Http\Request;
 
 class Rentas extends Component
 {
-    
+
     public function render()
     {
         $rentas = DB::table('renta')
             ->join('users', 'users.id', '=', 'renta.user_id')
-            ->join('pelicula', 'users.id', '=', 'renta.id_peli')
+            ->join('pelicula', 'pelicula.id_peli', '=', 'renta.id_peli')
             ->select('renta.*', 'users.*', 'pelicula.*')
             ->where('renta.user_id', Auth::user()->id)
             ->get();
-
         return view('livewire.rentas', compact('rentas'));
     }
-
-    public function edit($id_renta) {
-        $renta = DB::table('renta')
-            ->join('users', 'users.id', '=', 'renta.user_id')
-            ->join('pelicula', 'users.id', '=', 'renta.id_peli')
-            ->select('renta.', 'users.', 'pelicula.*')
-            ->where('renta.id_renta', $id_renta)
-            ->first();
-
-        return view('livewire.rentas_update', compact('rentas'));
-    }
-
 
     public function update(Request $request, $id_renta) {
         Renta::findOrFail($id_renta)->update($request->all());

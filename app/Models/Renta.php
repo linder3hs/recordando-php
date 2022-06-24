@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Renta extends Model
 {
     use HasFactory;
-    protected $fillable = ['fech_registro', 'fech_devol', 'fech_entrega', 'id_cliente', 'id_peli'];
+
+    protected $table = "renta";
+
+    protected $primaryKey = "id_renta";
+
+    protected $fillable = ['fech_registro', 'fech_devol', 'fech_entrega', 'id_cliente', 'id_peli', 'user_id'];
 
     public function user()
     {
